@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>E2EE Chat</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 20px; max-width: 760px; }
+    #chat { border: 1px solid #ddd; height: 300px; overflow: auto; padding: 10px; margin-bottom: 10px; }
+    #controls { display:flex; gap:8px; margin-bottom: 10px; }
+    input[type=text] { flex: 1; padding: 8px; }
+    button { padding: 8px 12px; }
+    .me { color: blue; }
+    .peer { color: green; }
+  </style>
+</head>
+<body>
+  <h2>Simple E2EE Chat (Relay server)</h2>
+
+  <div id="setup">
+    <input id="username" placeholder="Your name" value="Alice" />
+    <input id="room" placeholder="Room name" value="room1" />
+    <button id="connectBtn">Connect & Generate Keys</button>
+  </div>
+
+  <div id="chatWrap" style="display:none;">
+    <div id="chat"></div>
+
+    <div id="controls">
+      <input id="message" type="text" placeholder="Type message..." />
+      <button id="sendBtn">Send (encrypted)</button>
+    </div>
+    <div>
+      <small>Open two browser windows/tabs, use different usernames, same room.</small>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+   <link rel="shortcut icon" href="E2EE.png" type="image/x-icon">
+</body>
+</html>
